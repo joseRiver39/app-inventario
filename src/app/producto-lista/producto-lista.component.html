@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="container text-center" style="margin: 30px;">
+
+         <h3>Sistema de Inventario</h3>
+
+    </div>
+   
+
+    <table class="table table-striped  table-hover align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Descripcion de Producto</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Existencia</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of producto">
+                <th scope="row">{{product.idProducto}}</th>
+                <td>{{product.descripcion}}</td>
+                <td>{{product.precio}}</td>
+                <td>{{product.existencia}}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
