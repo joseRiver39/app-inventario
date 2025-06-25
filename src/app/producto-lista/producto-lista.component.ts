@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Producto } from '../producto';
 import { ProductoService } from '../producto.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-producto-lista',
@@ -13,7 +14,8 @@ import { ProductoService } from '../producto.service';
 export class ProductoListaComponent implements OnInit {
   producto: Producto[] = [];
 
-  constructor(private productoService: ProductoService) {}
+  constructor(private productoService: ProductoService, 
+              private enrutador: Router) {}
 
   ngOnInit(): void {
     this.obtenerProductos();
@@ -23,5 +25,9 @@ export class ProductoListaComponent implements OnInit {
     this.productoService.obtenerProductoListar().subscribe(datos => {
       this.producto = datos;
     });
+  }
+
+  EditarProducto(id:number){
+    this.enrutador.navigate(['editar-producto',id]);
   }
 }
